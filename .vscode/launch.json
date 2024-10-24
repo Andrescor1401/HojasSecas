@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "urbanizacion.Main",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "HouseService",
+            "request": "launch",
+            "mainClass": "urbanizacion.model.service.HouseService",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "InvoiceService",
+            "request": "launch",
+            "mainClass": "urbanizacion.model.service.InvoiceService",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "OwnerService",
+            "request": "launch",
+            "mainClass": "urbanizacion.model.service.OwnerService",
+            "projectName": "hojas_secas"
+        }
+    ]
+}

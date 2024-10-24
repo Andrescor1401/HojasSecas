@@ -1,0 +1,90 @@
+[
+  {
+    "idVoice": 1,
+    "dateVoice": "2023-04-06",
+    "idProperty": 101,
+    "status": "Pending"
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-07",
+    "idProperty": 102,
+    "status": "Completed",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2023-04-06",
+      "fineEventDate": "2023-04-01",
+      "commonArea": "Parking",
+      "idProperty": 0,
+      "idOwner": 0,
+      "description": "Unauthorized parking",
+      "fineAmount": 100.0,
+      "paymentDueDate": "2023-04-30",
+      "amountPaid": 0.0,
+      "idInvoice": 0
+    }
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-05",
+    "idProperty": 104,
+    "status": "Pending"
+  },
+  {
+    "idVoice": 3,
+    "dateVoice": "2023-04-07",
+    "idProperty": 107,
+    "status": "Completed",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2023-04-06",
+      "fineEventDate": "2023-04-01",
+      "commonArea": "Parking",
+      "idProperty": 0,
+      "idOwner": 0,
+      "description": "Unauthorized parking",
+      "fineAmount": 100.0,
+      "paymentDueDate": "2023-04-30",
+      "amountPaid": 0.0,
+      "idInvoice": 0
+    }
+  },
+  {
+    "idVoice": 5,
+    "dateVoice": "2024-05-14",
+    "idProperty": 145,
+    "status": "pendiente",
+    "fine": {
+      "idFine": 8,
+      "fineDate": "2024-1-25",
+      "fineEventDate": "2024-04-25",
+      "idProperty": 145,
+      "idOwner": 1401,
+      "description": "musica alta",
+      "fineAmount": 100000.0,
+      "paymentDueDate": "2024-5-14",
+      "amountPaid": 50000.0,
+      "paymentDate": "2024-10-26",
+      "idInvoice": 0
+    }
+  },
+  {
+    "idVoice": 5,
+    "dateVoice": "2024-05-14",
+    "idProperty": 145,
+    "status": "pendiente",
+    "fine": {
+      "idFine": 8,
+      "fineDate": "2024-1-25",
+      "fineEventDate": "2024-04-25",
+      "idProperty": 145,
+      "idOwner": 1401,
+      "description": "musica alta",
+      "fineAmount": 100000.0,
+      "paymentDueDate": "2024-5-14",
+      "amountPaid": 50000.0,
+      "paymentDate": "2024-10-26",
+      "idInvoice": 0
+    }
+  }
+]
