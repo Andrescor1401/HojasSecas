@@ -1,13 +1,14 @@
 package urbanizacion.model.bean;
 
-public class CommonArea {
+public class CommonArea extends Property {
     private String description;
     private String startHour;
     private String finishHour;
     private double amountMantenimiento;
     private int capacity;
 
-    public CommonArea(String description, String startHour, String finishHour, double amountMantenimiento, int capacity){
+    public CommonArea(int idProperty,String description, String startHour, String finishHour, double amountMantenimiento, int capacity){
+        super(idProperty);
         this.description = description;
         this.startHour = startHour;
         this.finishHour = finishHour;
@@ -23,13 +24,12 @@ public class CommonArea {
         this.description = description;
     }
 
-    public String getStartHour() {
-        return startHour;
-    }
-
-    public void setStartHour(String startHour) {
-        this.startHour = startHour;
-    }
+   public String getStartHour() {
+       return startHour;
+   }
+   public void setStartHour(String startHour) {
+       this.startHour = startHour;
+   }
 
     public String getFinishHour() {
         return finishHour;

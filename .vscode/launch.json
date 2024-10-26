@@ -6,6 +6,90 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Facturas",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.Facturas",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "ValorAdministracion",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.ValorAdministracion",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "OcupacionVecinos",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.OcupacionVecinos",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "MenuUsuario",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.MenuUsuario",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "MultaPropietario",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.MultaPropietario",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "MultaAreaComun",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.MultaAreaComun",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "MenuAdmin",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.MenuAdmin",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "Login",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.Login",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "Registro",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.Registro",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "Inicio",
+            "request": "launch",
+            "mainClass": "urbanizacion.view.Inicio",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "CommonAreaService",
+            "request": "launch",
+            "mainClass": "urbanizacion.model.service.CommonAreaService",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
+            "name": "AdminService",
+            "request": "launch",
+            "mainClass": "urbanizacion.model.service.AdminService",
+            "projectName": "hojas_secas"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

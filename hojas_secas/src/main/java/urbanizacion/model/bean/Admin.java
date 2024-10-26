@@ -1,12 +1,10 @@
 package urbanizacion.model.bean;
 
-import java.util.Date;
-
 public class Admin extends Person{
-    private Date startDate;
+    private String startDate;
     private String gradeService;
 
-    public Admin(String name, int id,int age, String mail, String phoneNumber, int password,Date startDate,String gradeService){
+    public Admin(String name, int id,int age, String mail, String phoneNumber, int password,String startDate,String gradeService){
         super(name, id,age, mail, phoneNumber, password);
         this.startDate = startDate;
         this.gradeService = gradeService;
@@ -15,13 +13,13 @@ public class Admin extends Person{
     public void setGradeService(String gradeService) {
         this.gradeService = gradeService;
     }
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
     public String getGradeService() {
         return gradeService;
     }
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 

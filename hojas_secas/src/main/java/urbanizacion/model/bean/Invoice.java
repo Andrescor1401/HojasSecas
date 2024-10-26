@@ -6,13 +6,21 @@ public class Invoice {
     private int idProperty;
     private String status;
     private Fine fine;
+    private double amountPay;
     public Invoice(){}
 
-    public Invoice(int idVoice, String dateVoice,int idProperty, String status){
+    public Invoice(int idVoice, String dateVoice,int idProperty, double amountPay,String status){
         this.idVoice = idVoice;
         this.dateVoice = dateVoice;
+        this.amountPay = amountPay;
         this.idProperty = idProperty;
         this.status = status;
+    }
+    public void setAmountPay(double amountPay) {
+        this.amountPay = amountPay;
+    }
+    public double getAmountPay() {
+        return amountPay;
     }
     public void setDateVoice(String dateVoice) {
         this.dateVoice = dateVoice;
@@ -46,7 +54,7 @@ public class Invoice {
     }
     @Override
     public String toString() {
-        return "Invoice [idVoice=" + idVoice + ", dateVoice=" + dateVoice + ", idProperty=" + idProperty + ", status="
+        return "Invoice [idVoice=" + idVoice + ", dateVoice=" + dateVoice + ", idProperty=" + idProperty + ", amountPay="+ amountPay + ", status="
                 + status + ", fine=" +fine+ "]";
     }
     

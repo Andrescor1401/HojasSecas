@@ -6,6 +6,7 @@ public class House extends Property  {
     private double currentBalance;
     private double squareMeters;
 
+    public House(){}
     public House(int idProperty, int intOwner,double currentBalance,double squareMeters){
         super(idProperty);
         this.intOwner = intOwner;

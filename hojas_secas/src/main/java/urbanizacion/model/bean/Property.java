@@ -3,6 +3,7 @@ package urbanizacion.model.bean;
 public abstract class Property {
     private int idProperty;
 
+    public Property(){} 
     public Property(int idProperty){
         this.idProperty = idProperty;
     }

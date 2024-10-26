@@ -3,7 +3,8 @@
     "idVoice": 1,
     "dateVoice": "2023-04-06",
     "idProperty": 101,
-    "status": "Pending"
+    "status": "Pending",
+    "amountPay": 0.0
   },
   {
     "idVoice": 2,
@@ -15,39 +16,49 @@
       "fineDate": "2023-04-06",
       "fineEventDate": "2023-04-01",
       "commonArea": "Parking",
-      "idProperty": 0,
       "idOwner": 0,
       "description": "Unauthorized parking",
-      "fineAmount": 100.0,
-      "paymentDueDate": "2023-04-30",
-      "amountPaid": 0.0,
       "idInvoice": 0
-    }
+    },
+    "amountPay": 0.0
   },
   {
     "idVoice": 2,
     "dateVoice": "2023-04-05",
     "idProperty": 104,
-    "status": "Pending"
+    "status": "Pending",
+    "amountPay": 0.0
   },
   {
     "idVoice": 3,
     "dateVoice": "2023-04-07",
     "idProperty": 107,
-    "status": "Completed",
+    "status": "Pagada",
     "fine": {
       "idFine": 1,
       "fineDate": "2023-04-06",
       "fineEventDate": "2023-04-01",
       "commonArea": "Parking",
-      "idProperty": 0,
       "idOwner": 0,
       "description": "Unauthorized parking",
-      "fineAmount": 100.0,
-      "paymentDueDate": "2023-04-30",
-      "amountPaid": 0.0,
       "idInvoice": 0
-    }
+    },
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 5,
+    "dateVoice": "2024-05-14",
+    "idProperty": 145,
+    "status": "Pagada",
+    "fine": {
+      "idFine": 8,
+      "fineDate": "2024-1-25",
+      "fineEventDate": "2024-04-25",
+      "idOwner": 1401,
+      "description": "musica alta",
+      "idInvoice": 0
+    },
+    "amountPay": 0.0
   },
   {
     "idVoice": 5,
@@ -58,33 +69,144 @@
       "idFine": 8,
       "fineDate": "2024-1-25",
       "fineEventDate": "2024-04-25",
-      "idProperty": 145,
       "idOwner": 1401,
       "description": "musica alta",
-      "fineAmount": 100000.0,
-      "paymentDueDate": "2024-5-14",
-      "amountPaid": 50000.0,
-      "paymentDate": "2024-10-26",
       "idInvoice": 0
-    }
+    },
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-05",
+    "idProperty": 104,
+    "status": "Pending",
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-05",
+    "idProperty": 1,
+    "status": "Pending",
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-05",
+    "idProperty": 1,
+    "status": "Pending",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2024-04-21",
+      "fineEventDate": "2024-04-21",
+      "idOwner": 1,
+      "description": "2024-01-21",
+      "idInvoice": 0
+    },
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-05",
+    "idProperty": 1,
+    "status": "Pending",
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 2,
+    "dateVoice": "2023-04-05",
+    "idProperty": 1,
+    "status": "Pending",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2024-04-21",
+      "fineEventDate": "2024-04-21",
+      "idOwner": 1,
+      "description": "2024-01-21",
+      "idInvoice": 0
+    },
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 3,
+    "dateVoice": "2023-04-05",
+    "idProperty": 2,
+    "status": "Pendiente",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2024-04-21",
+      "fineEventDate": "2024-04-21",
+      "idOwner": 1,
+      "description": "2024-01-21",
+      "idInvoice": 0
+    },
+    "amountPay": 0.0
+  },
+  {
+    "idVoice": 3,
+    "dateVoice": "2023-04-05",
+    "idProperty": 2,
+    "status": "Pendiente",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2024-04-21",
+      "fineEventDate": "2024-04-21",
+      "idOwner": 1,
+      "description": "Musica muy alta",
+      "idInvoice": 0
+    },
+    "amountPay": 210000.0
+  },
+  {
+    "idVoice": 4,
+    "dateVoice": "2023-04-05",
+    "idProperty": 2,
+    "status": "Pendiente",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2024-04-21",
+      "fineEventDate": "2024-04-21",
+      "idOwner": 1,
+      "description": "Musica muy alta",
+      "idInvoice": 0
+    },
+    "amountPay": 100000.0
+  },
+  {
+    "idVoice": 4,
+    "dateVoice": "2023-04-05",
+    "idProperty": 2,
+    "status": "Pagada",
+    "fine": {
+      "idFine": 1,
+      "fineDate": "2024-04-21",
+      "fineEventDate": "2024-04-21",
+      "idOwner": 1,
+      "description": "Musica muy alta",
+      "idInvoice": 0
+    },
+    "amountPay": 40000.0
   },
   {
     "idVoice": 5,
-    "dateVoice": "2024-05-14",
-    "idProperty": 145,
-    "status": "pendiente",
+    "dateVoice": "2023-04-06",
+    "idProperty": 2,
+    "status": "Pending",
+    "amountPay": 10000.0
+  },
+  {
+    "idVoice": 4,
+    "dateVoice": "2024-10-25",
+    "idProperty": -1,
+    "status": "Pendiente",
     "fine": {
-      "idFine": 8,
-      "fineDate": "2024-1-25",
-      "fineEventDate": "2024-04-25",
-      "idProperty": 145,
-      "idOwner": 1401,
-      "description": "musica alta",
-      "fineAmount": 100000.0,
-      "paymentDueDate": "2024-5-14",
-      "amountPaid": 50000.0,
-      "paymentDate": "2024-10-26",
+      "idFine": 4,
+      "fineDate": "2024-10-25",
+      "fineEventDate": "2024-10-24",
+      "commonArea": "Piscina",
+      "idOwner": 0,
+      "description": "Fallo en manguera",
       "idInvoice": 0
-    }
+    },
+    "amountPay": 20000.0
   }
 ]

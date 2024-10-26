@@ -1,25 +1,32 @@
 package urbanizacion.model.service;
 import urbanizacion.model.bean.House;
 import urbanizacion.model.bean.Invoice;
-import java.util.List;
-import java.io.BufferedWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import urbanizacion.model.bean.Fine;
+import java.util.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class HouseService {
+    
     protected static String filePath = "persistencia/houses.csv";
-    private static String filePath2 = "persistencia/propietarios.csv";
     private InvoiceService invoice = new InvoiceService();
+    private ValidateService validateService = new ValidateService();
+    private House house = new House();
     
 
     public void createHouse(int idProperty, int idOwner,double currentBalance,double squareMeters){
-        House newHouse = new House(idProperty, idOwner, currentBalance,squareMeters);
-        if(validateId(idOwner)){
-            saveHouse(newHouse);
-            System.out.println("La casa fue creada y asignada a su propietario");
+        if(!validateService.validateIdToCreateHouse(idProperty)){
+            if(validateService.validateIdOwner(idOwner)){
+                House newHouse = new House(idProperty, idOwner, currentBalance,squareMeters);
+                saveHouse(newHouse);
+                System.out.println("La casa fue creada y asignada a su propietario");
+            }
         }
+        
         
     }
     private void saveHouse(House house){
@@ -32,107 +39,107 @@ public class HouseService {
     
         }
     }
-    public boolean validateHouse(int idHouse) {
-        boolean found = false;
-        BufferedReader buffer = null;
-        try {
-            buffer = new BufferedReader(new FileReader(filePath));
-            String line = null;
-            buffer.readLine();
-            while ((line = buffer.readLine()) != null) {
-                if (line.trim().isEmpty()) {
-                    continue; 
-                }
-                String[] parts = line.split(";");
-                if (parts.length != 4) {
-                    System.out.println("Línea malformada: " + line);
-                    continue; 
-                }
-                try {
-                    int houseId = Integer.parseInt(parts[0].trim());
-                    if (houseId == idHouse) {
-                        System.out.println("Acceso valido");
-                        found = true;
-                        return true;
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Error de formato de número en la línea: " + line);
-                }
+    private void updateHouse(House house) {
+    List<String> lines = new ArrayList<>();
+    boolean found = false;
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String line;
+        boolean isFirstLine = true;
+
+        // Leer cada línea y buscar el idProperty de la casa a actualizar
+        while ((line = reader.readLine()) != null) {
+            // Si la línea es la cabecera, agregarla sin modificaciones y continuar
+            if (isFirstLine) {
+                lines.add(line);  // Mantener la cabecera
+                isFirstLine = false;
+                continue;
             }
-        } catch (IOException e) {
-            System.out.println("Error en el programa: " + e.getMessage());
-        } finally {
-            if (buffer != null) {
-                try {
-                    buffer.close();
-                } catch (IOException e) {
-                    System.out.println("Error al cerrar: " + e.getMessage());
-                }
+
+            String[] parts = line.split(";");
+
+            // Si la línea corresponde a la casa que queremos actualizar
+            if (parts.length >= 4 && Integer.parseInt(parts[0]) == house.getIdProperty()) {
+                // Actualizar el balance y demás datos de la casa
+                line = house.getIdProperty() + ";" + house.getIntOwner() + ";" 
+                        + house.getCurrentBalance() + ";" + house.getSquareMeters();
+                found = true;
             }
-        }if(!found){
-            System.out.println("House not found");
+            lines.add(line);
         }
-        return false;
+    } catch (IOException e) {
+        System.out.println("Problema al leer el archivo CSV: " + e.getMessage());
     }
-    public boolean validateId(int id){
-        boolean found = false;
-        BufferedReader buffer = null;
-        try {
-            buffer = new BufferedReader(new FileReader(filePath2));
-            String line = null;
-            buffer.readLine();
-            while ((line = buffer.readLine()) != null) {
-                if (line.trim().isEmpty()) {
-                    continue; 
-                }
-                String[] parts = line.split(";");
-                if (parts.length != 8) {
-                    System.out.println("Línea malformada: " + line);
-                    continue; 
-                }
-                try {
-                    int userId = Integer.parseInt(parts[1].trim());
-                    if (userId == id) {
-                        System.out.println("User already exist");
-                        found = true;
-                        return true;
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Error de formato de número en la línea: " + line);
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error en el programa: " + e.getMessage());
-        } finally {
-            if (buffer != null) {
-                try {
-                    buffer.close();
-                } catch (IOException e) {
-                    System.out.println("Error al cerrar: " + e.getMessage());
-                }
-            }
-        }if(!found){
-            System.out.println("datos incorrectos");
+
+    if (!found) {
+        System.out.println("Casa con id " + house.getIdProperty() + " no encontrada. No se ha actualizado.");
+        return;
+    }
+
+    // Sobreescribir el archivo con los datos actualizados
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        for (String line : lines) {
+            writer.write(line);
+            writer.newLine();
         }
-        return false;
+    } catch (IOException e) {
+        System.out.println("Problema al escribir en el archivo CSV: " + e.getMessage());
     }
+
+    System.out.println("La casa con id " + house.getIdProperty() + " se ha actualizado correctamente.");
+}
+
     
-    public void printInvoicesHouse(int idHouse){
+    public double amountAdministration(double squareMeters){
+        return squareMeters * 315855;
+    }
+
+    public void updateBalance(double amount){
+     double currentBalance = house.getCurrentBalance();
+     house.setCurrentBalance(currentBalance +amount);        
+    }
+
+    public List<String> printInvoicesHouse(int idHouse){
          List<Invoice> invoices = invoice.loadInvoicesFromJson();
+         List<String> invoicesString = new ArrayList<>();
             for (Invoice inv : invoices) {
                 int idProperty = inv.getIdProperty(); 
                 if(idProperty == idHouse){
-                    System.out.println(inv);
+                    invoicesString.add(inv.toString());
                 }else{
-                    System.out.println("no hay casa");
+                    System.out.println("La casa con id: " +idHouse+ " no tiene facturas generadas. ");
+                    return null;
                 }
                 
-            }
+            }return invoicesString;
     }
+    public double getTotalPendingInvoices(int idHouse) {
+        double totalPending = 0;
+        List<Invoice> invoices = invoice.loadInvoicesFromJson();
+    
+        for (Invoice invoice : invoices) {
+            if (invoice.getIdProperty() == idHouse && invoice.getStatus().equals("Pendiente")) {
+                totalPending += invoice.getAmountPay(); 
+            }
+        }
+    
+        return totalPending;
+    }
+    
+    
+
+    
+    
+    
     public static void main(String[] args) {
         HouseService hou = new HouseService();
         //hou.createHouse(1, 11, 0, 70);
-        hou.printInvoicesHouse(101);
+        //hou.printInvoicesHouse(101);
+        //hou.createHouse(2, 17, 0, 85);
+        //hou.payInvoice(3,2);
+        System.out.println("La casa debe: " + hou.getTotalPendingInvoices(2));
+        //hou.checkAndUpdateHouseBalance(2);
+        
     }
 
 
